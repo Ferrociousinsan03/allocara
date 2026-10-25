@@ -1,0 +1,158 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-serif: "Fraunces Variable", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --color-ivory: var(--ivory);
+  --color-ivory-dim: var(--ivory-dim);
+  --color-ivory-faint: var(--ivory-faint);
+  --color-emerald: var(--emerald);
+  --color-emerald-bright: var(--emerald-bright);
+  --color-emerald-deep: var(--emerald-deep);
+  --color-bg-1: var(--bg-1);
+  --color-bg-2: var(--bg-2);
+  --color-line: var(--line);
+  --color-ok: var(--status-ok);
+  --color-careful: var(--status-careful);
+  --color-problem: var(--status-problem);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 14px;
+  /* Allocara palette (spec section 4) */
+  --bg-0: #07120E; --bg-1: #0C1B15; --bg-2: #12281F; --line: #1F3B2F;
+  --ivory: #F4EFE0; --ivory-dim: #B9C2B1; --ivory-faint: #7E8C7F;
+  --emerald: #10B981; --emerald-bright: #34D399; --emerald-deep: #047857;
+  --status-ok: #34D399; --status-careful: #E0B04C; --status-problem: #E5675A;
+
+  --background: var(--bg-0); --foreground: var(--ivory);
+  --card: var(--bg-1); --card-foreground: var(--ivory);
+  --popover: var(--bg-2); --popover-foreground: var(--ivory);
+  --primary: var(--emerald); --primary-foreground: var(--bg-0);
+  --secondary: var(--bg-2); --secondary-foreground: var(--ivory);
+  --muted: var(--bg-2); --muted-foreground: var(--ivory-dim);
+  --accent: var(--bg-2); --accent-foreground: var(--ivory);
+  --destructive: var(--status-problem); --destructive-foreground: var(--bg-0);
+  --border: var(--line); --input: var(--line); --ring: var(--emerald-bright);
+  --chart-1: var(--emerald); --chart-2: var(--ivory); --chart-3: var(--status-careful);
+  --chart-4: var(--emerald-deep); --chart-5: var(--ivory-faint);
+  --sidebar: var(--bg-1); --sidebar-foreground: var(--ivory); --sidebar-primary: var(--emerald);
+  --sidebar-primary-foreground: var(--bg-0); --sidebar-accent: var(--bg-2);
+  --sidebar-accent-foreground: var(--ivory); --sidebar-border: var(--line); --sidebar-ring: var(--emerald-bright);
+  --glow-hero: radial-gradient(60% 60% at 30% 40%, color-mix(in oklab, var(--emerald) 18%, transparent), transparent 70%);
+  --background-fade: linear-gradient(to bottom, var(--background) 55%, transparent 100%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  body { font-family: var(--font-sans); font-feature-settings: "tnum" 0; }
+  h1, h2, h3 { font-family: var(--font-serif); letter-spacing: -0.01em; }
+  :focus-visible { outline: 2px solid var(--emerald-bright); outline-offset: 2px; }
+}
+@utility num { font-variant-numeric: tabular-nums; }
+@utility hero-title { font-size: clamp(44px, 6vw, 84px); line-height: 1.02; }
+@utility hero-glow { background-image: var(--glow-hero); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Demo mode highlight ring */
+[data-demo-active] {
+  outline: 2px solid var(--emerald-bright);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 6px color-mix(in oklab, var(--emerald) 25%, transparent);
+}
+
+/* Print stylesheet (spec section 12): light ivory-on-white report layout. */
+@media print {
+  :root {
+    --bg-0: #ffffff; --bg-1: #ffffff; --bg-2: #f4f2ea; --line: #d8d4c4;
+    --ivory: #1c241f; --ivory-dim: #3d4740; --ivory-faint: #5d675f;
+    --emerald: #047857; --emerald-bright: #047857; --emerald-deep: #065f46;
+    --status-ok: #047857; --status-careful: #92680a; --status-problem: #b3372a;
+    --glow-hero: none;
+  }
+  .no-print { display: none !important; }
+  body { background: #ffffff; }
+  a { text-decoration: none; }
+  section, .report-page > div { break-inside: avoid; }
+}
+
+/* Themed scrollbars across the app */
+* { scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--emerald) 55%, transparent) transparent; }
+*::-webkit-scrollbar { width: 8px; height: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--emerald) 45%, transparent); border-radius: 999px; }
+*::-webkit-scrollbar-thumb:hover { background: var(--emerald-bright); }
+*::-webkit-scrollbar-button { display: none; }
