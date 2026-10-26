@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792881554164,
+      "tag": "0000_private_user_profiles_and_portfolios",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792881827212,
+      "tag": "0001_tighten_private_account_grants",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792930362706,
+      "tag": "0002_investment_tool_entries",
+      "breakpoints": true
+    }
+  ]
+}
