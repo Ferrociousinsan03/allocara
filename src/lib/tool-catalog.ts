@@ -1,0 +1,23 @@
+export const toolCatalog = [
+ {id:'investment-entry',name:'Investment entry',group:'Portfolio',description:'Your holdings, in your account.',kind:'entry'},
+ {id:'company-health',name:'Company financial health',group:'Research',description:'Financial ratios from reported figures.',kind:'company'},
+ {id:'fund-returns',name:'Fund rolling returns',group:'Research',description:'Dated NAV observations, annualised.',kind:'nav'},
+ {id:'journal',name:'Investment journal',group:'Records',description:'Your investment thesis and review dates.',kind:'record'},
+ {id:'dividends',name:'Dividend income',group:'Records',description:'Received and expected cash payments.',kind:'record'},
+ {id:'retirement',name:'Retirement readiness',group:'Planning',description:'Future expenses against projected savings.',kind:'calculator'},
+ {id:'rules',name:'Personal investing rules',group:'Records',description:'Your limits and decision checklist.',kind:'record'},
+ {id:'watchlist',name:'Research watchlist',group:'Records',description:'Companies, notes, and review prices.',kind:'record'},
+ {id:'step-up',name:'Step-up SIP',group:'Planning',description:'Annual increases in monthly contributions.',kind:'calculator'},
+ {id:'capital-gains',name:'Capital gains estimate',group:'Planning',description:'A scenario using your tax assumptions.',kind:'calculator'},
+ {id:'fees',name:'Fund fee impact',group:'Planning',description:'Gross and after-fee growth side by side.',kind:'calculator'},
+ {id:'news',name:'News & portfolio exposure',group:'Research',description:'Symbol-linked news and your exposure.',kind:'news'},
+ {id:'withdrawal',name:'Early withdrawal costs',group:'Planning',description:'Compare two fixed-income exit terms.',kind:'calculator'},
+ {id:'sandbox',name:'Practice portfolio',group:'Records',description:'Separate hypothetical positions and marks.',kind:'record'},
+ {id:'sources',name:'Sources & freshness',group:'Research',description:'Input provenance and observation dates.',kind:'sources'},
+ {id:'monthly-report',name:'Monthly portfolio report',group:'Portfolio',description:'Saved holdings and dated cash records.',kind:'report'},
+ {id:'privacy',name:'Delete stored data',group:'Portfolio',description:'Clear your saved Allocara information.',kind:'privacy'},
+ {id:'company-compare',name:'Company comparison',group:'Research',description:'Two reported financial statements.',kind:'company'},
+ {id:'actions',name:'Corporate actions calendar',group:'Records',description:'Dividend, split, bonus and rights dates.',kind:'record'},
+ {id:'progress',name:'Contributions vs growth',group:'Planning',description:'Actual cost basis and future projection.',kind:'calculator'},
+] as const;
+export type Tool = typeof toolCatalog[number];
